@@ -108,7 +108,7 @@ extension Publishers.Output {
 
         private var remainingCount: Int
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         fileprivate init(downstream: Downstream, range: CountableRange<Int>) {
             self.downstream = downstream

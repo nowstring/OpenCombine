@@ -98,9 +98,9 @@ extension Publishers.Delay {
             case terminal
         }
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
         private var state: State
-        private let downstreamLock = UnfairRecursiveLock.allocate()
+        private let downstreamLock = OpenCombineUnfairRecursiveLock.allocate()
 
         fileprivate init(_ publisher: Delay, downstream: Downstream) {
             state = .ready(publisher, downstream)

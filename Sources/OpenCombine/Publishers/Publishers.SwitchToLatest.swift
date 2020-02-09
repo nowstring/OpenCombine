@@ -74,8 +74,8 @@ extension Publishers.SwitchToLatest {
 
         typealias Failure = Upstream.Failure
 
-        private let _lock = UnfairLock.allocate()
-        private let downstreamLock = UnfairRecursiveLock.allocate()
+        private let _lock = OpenCombineUnfairLock.allocate()
+        private let downstreamLock = OpenCombineUnfairRecursiveLock.allocate()
         private var _actualDownstream: Downstream?
         private var _upstreamSubscription: Subscription?
         private var _currentGenerationID: UInt64 = 0
@@ -291,7 +291,7 @@ extension Publishers.SwitchToLatest.Outer {
         typealias Parent =
             Publishers.SwitchToLatest<NestedPublisher, Upstream>.Outer<Downstream>
 
-        private let _lock = UnfairLock.allocate()
+        private let _lock = OpenCombineUnfairLock.allocate()
         private var _parent: Parent?
         fileprivate let _identifier: UInt64
         private var _innerSubscription: Subscription?

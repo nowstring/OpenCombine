@@ -67,7 +67,7 @@ public final class ObservableObjectPublisher: Publisher {
 
     public typealias Failure = Never
 
-    private let lock = UnfairLock.allocate()
+    private let lock = OpenCombineUnfairLock.allocate()
 
     private var connections = Set<Conduit>()
 
@@ -138,8 +138,8 @@ extension ObservableObjectPublisher {
 
         private weak var parent: ObservableObjectPublisher?
         private let downstream: Downstream
-        private let downstreamLock = UnfairRecursiveLock.allocate()
-        private let lock = UnfairLock.allocate()
+        private let downstreamLock = OpenCombineUnfairRecursiveLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
         private var state = State.initialized
 
         init(downstream: Downstream, parent: ObservableObjectPublisher) {

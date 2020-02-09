@@ -89,7 +89,7 @@ extension Publishers.Print {
         private let prefix: String
         private var stream: PrintTarget?
         private var status = SubscriptionStatus.awaitingSubscription
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         init(downstream: Downstream, prefix: String, stream: TextOutputStream?) {
             self.downstream = downstream

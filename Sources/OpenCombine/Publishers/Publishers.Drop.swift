@@ -66,7 +66,7 @@ extension Publishers.Drop {
 
         private let downstream: Downstream
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         private var subscription: Subscription?
 

@@ -38,7 +38,7 @@ internal class ReduceProducer<Downstream: Subscriber,
 
     private let downstream: Downstream
 
-    private let lock = UnfairLock.allocate()
+    private let lock = OpenCombineUnfairLock.allocate()
 
     private var downstreamRequested = false
 

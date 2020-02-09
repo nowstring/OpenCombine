@@ -95,9 +95,9 @@ extension Publishers.SubscribeOn {
             case terminal
         }
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
         private var state: State
-        private let upstreamLock = UnfairLock.allocate()
+        private let upstreamLock = OpenCombineUnfairLock.allocate()
 
         init(_ subscribeOn: SubscribeOn, downstream: Downstream) {
             state = .ready(subscribeOn, downstream)

@@ -111,7 +111,7 @@ extension Publishers.HandleEvents {
 
         private var status = SubscriptionStatus.awaitingSubscription
         private var pendingDemand = Subscribers.Demand.none
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
         private var events: Publishers.HandleEvents<Upstream>?
         private let downstream: Downstream
 

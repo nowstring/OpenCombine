@@ -80,17 +80,17 @@ extension Publishers.FlatMap {
 
         // Must be recursive lock. Probably a bug in Combine.
         /// The lock for requesting from `outerSubscription`.
-        private let outerLock = UnfairLock.allocate()
+        private let outerLock = OpenCombineUnfairLock.allocate()
 
         /// The lock for modifying the state. All mutable state here should be
         /// read and modified with this lock acquired.
         /// The only exception is the `downstreamRecursive` field, which is guarded
         /// by the `downstreamLock`.
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         /// All the calls to the downstream subscriber should be made with this lock
         /// acquired.
-        private let downstreamLock = UnfairRecursiveLock.allocate()
+        private let downstreamLock = OpenCombineUnfairRecursiveLock.allocate()
 
         private let downstream: Downstream
 

@@ -200,7 +200,7 @@ extension Publishers.TryScan {
 
         private var status = SubscriptionStatus.awaitingSubscription
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         private var finished = false
 

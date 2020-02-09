@@ -117,7 +117,7 @@ extension Publishers.DropWhile {
 
         private var dropping = true
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         fileprivate init(downstream: Downstream, predicate: @escaping (Input) -> Bool) {
             self.downstream = downstream
@@ -230,7 +230,7 @@ extension Publishers.TryDropWhile {
 
         private var finished = false
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         fileprivate init(downstream: Downstream,
                          predicate: @escaping (Input) throws -> Bool) {

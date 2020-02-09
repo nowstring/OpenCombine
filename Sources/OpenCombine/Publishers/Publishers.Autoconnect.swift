@@ -45,7 +45,7 @@ extension Publishers {
         /// The publisher from which this publisher receives elements.
         public final let upstream: Upstream
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         private var state = State.disconnected
 

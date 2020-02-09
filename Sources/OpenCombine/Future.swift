@@ -10,7 +10,7 @@ public final class Future<Output, Failure>: Publisher where Failure: Error {
 
     public typealias Promise = (Result<Output, Failure>) -> Void
 
-    private let _lock = UnfairRecursiveLock.allocate()
+    private let _lock = OpenCombineUnfairRecursiveLock.allocate()
     private var _subscriptions: [Conduit] = []
 
     private var result: Result<Output, Failure>?

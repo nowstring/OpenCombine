@@ -126,7 +126,7 @@ extension Publishers.Buffer {
             case terminal
         }
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         private var recursion = false
 

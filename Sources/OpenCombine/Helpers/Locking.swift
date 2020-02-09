@@ -9,10 +9,10 @@
 import COpenCombineHelpers
 #endif
 
-internal typealias UnfairLock = __UnfairLock
-internal typealias UnfairRecursiveLock = __UnfairRecursiveLock
+internal typealias OpenCombineUnfairLock = __UnfairLock
+internal typealias OpenCombineUnfairRecursiveLock = __UnfairRecursiveLock
 
-extension UnfairRecursiveLock {
+extension OpenCombineUnfairRecursiveLock {
 
     @inlinable
     internal func `do`<Result>(_ body: () throws -> Result) rethrows -> Result {

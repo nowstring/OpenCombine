@@ -38,7 +38,7 @@ internal class FilterProducer<Downstream: Subscriber,
 
     internal final let downstream: Downstream
 
-    private let lock = UnfairLock.allocate()
+    private let lock = OpenCombineUnfairLock.allocate()
 
     private var state = State.awaitingSubscription
 

@@ -143,9 +143,9 @@ extension Publishers.Concatenate {
 
         private var expectedSubscriptions = 2
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
-        private let downstreamLock = UnfairRecursiveLock.allocate()
+        private let downstreamLock = OpenCombineUnfairRecursiveLock.allocate()
 
         fileprivate init(downstream: Downstream, suffix: Suffix) {
             self.downstream = downstream

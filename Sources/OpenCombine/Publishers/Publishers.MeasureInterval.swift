@@ -79,7 +79,7 @@ extension Publishers.MeasureInterval {
             case terminal
         }
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         private var state: State
 

@@ -187,7 +187,7 @@ extension Publishers.TryMap {
 
         private var status = SubscriptionStatus.awaitingSubscription
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         let combineIdentifier = CombineIdentifier()
 

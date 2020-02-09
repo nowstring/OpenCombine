@@ -95,9 +95,9 @@ extension Publishers.ReceiveOn {
             case terminal
         }
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
         private var state: State
-        private let downstreamLock = UnfairRecursiveLock.allocate()
+        private let downstreamLock = OpenCombineUnfairRecursiveLock.allocate()
 
         init(_ receiveOn: ReceiveOn, downstream: Downstream) {
             state = .ready(receiveOn, downstream)

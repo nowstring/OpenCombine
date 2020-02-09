@@ -11,7 +11,7 @@
 /// specific values on-demand during tests.
 public final class PassthroughSubject<Output, Failure: Error>: Subject  {
 
-    private let _lock = UnfairRecursiveLock.allocate()
+    private let _lock = OpenCombineUnfairRecursiveLock.allocate()
 
     private var _completion: Subscribers.Completion<Failure>?
 

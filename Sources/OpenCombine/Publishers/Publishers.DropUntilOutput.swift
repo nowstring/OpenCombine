@@ -92,9 +92,9 @@ extension Publishers.DropUntilOutput {
 
         private var triggered = false
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
-        private let downstreamLock = UnfairRecursiveLock.allocate()
+        private let downstreamLock = OpenCombineUnfairRecursiveLock.allocate()
 
         private var upstreamSubscription: Subscription?
 

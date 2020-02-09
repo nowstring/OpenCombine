@@ -62,7 +62,7 @@ extension Publishers {
         /// to the multicast publisher.
         public let createSubject: () -> SubjectType
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         private var subject: SubjectType?
 
@@ -132,7 +132,7 @@ extension Publishers.Multicast {
             case terminal
         }
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         private var state: State
 

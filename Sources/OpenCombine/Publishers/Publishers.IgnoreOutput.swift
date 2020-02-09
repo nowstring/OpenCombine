@@ -59,7 +59,7 @@ extension Publishers.IgnoreOutput {
 
         private var status = SubscriptionStatus.awaitingSubscription
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         fileprivate init(downstream: Downstream) {
             self.downstream = downstream

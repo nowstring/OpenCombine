@@ -9,7 +9,7 @@
 /// changes.
 public final class CurrentValueSubject<Output, Failure: Error>: Subject {
 
-    private let _lock = UnfairRecursiveLock.allocate()
+    private let _lock = OpenCombineUnfairRecursiveLock.allocate()
 
     // TODO: Combine uses bag data structure
     private var _subscriptions: [Conduit] = []

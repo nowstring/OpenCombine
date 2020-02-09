@@ -145,7 +145,7 @@ extension Record {
         private var next: Output?
         private var pendingDemand = Subscribers.Demand.none
         private var recursion = false
-        private var lock = UnfairLock.allocate()
+        private var lock = OpenCombineUnfairLock.allocate()
 
         fileprivate init(downstream: Downstream,
                          sequence: [Output],

@@ -73,7 +73,7 @@ extension Publishers.ReplaceEmpty {
         private let downstream: Downstream
 
         private var receivedUpstream = false
-        private var lock = UnfairLock.allocate()
+        private var lock = OpenCombineUnfairLock.allocate()
         private var downstreamRequested = false
         private var finishedWithoutUpstream = false
 

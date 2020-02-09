@@ -81,7 +81,7 @@ extension Publishers.CollectByCount {
 
         private var finished = false
 
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         init(downstream: Downstream, count: Int) {
             self.downstream = downstream

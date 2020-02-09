@@ -13,7 +13,7 @@ internal final class SubjectSubscriber<Downstream: Subject>
       CustomPlaygroundDisplayConvertible,
       Subscription
 {
-    private let lock = UnfairLock.allocate()
+    private let lock = OpenCombineUnfairLock.allocate()
     private var downstreamSubject: Downstream?
     private var upstreamSubscription: Subscription?
 
