@@ -139,7 +139,7 @@ extension URLSession.OCombine.DataTaskPublisher {
         where Downstream.Input == (data: Data, response: URLResponse),
               Downstream.Failure == URLError
     {
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
         private var parent: URLSession.OCombine.DataTaskPublisher?
 

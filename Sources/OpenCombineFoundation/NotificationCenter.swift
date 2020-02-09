@@ -143,9 +143,9 @@ extension Notification {
           CustomPlaygroundDisplayConvertible
         where Downstream.Input == Notification, Downstream.Failure == Never
     {
-        private let lock = UnfairLock.allocate()
+        private let lock = OpenCombineUnfairLock.allocate()
 
-        fileprivate let downstreamLock = UnfairRecursiveLock.allocate()
+        fileprivate let downstreamLock = OpenCombineUnfairRecursiveLock.allocate()
 
         fileprivate var demand = Subscribers.Demand.none
 

@@ -11,5 +11,5 @@ import COpenCombineHelpers
 
 import OpenCombine
 
-internal typealias UnfairLock = __UnfairLock
-internal typealias UnfairRecursiveLock = __UnfairRecursiveLock
+internal typealias OpenCombineUnfairLock = __UnfairLock
+internal typealias OpenCombineUnfairRecursiveLock = __UnfairRecursiveLock
